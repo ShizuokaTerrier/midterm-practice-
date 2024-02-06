@@ -3,6 +3,7 @@ import { useState } from 'react'
 
 //components 
 import InputToDo from './components/InputToDo'
+import ListToDos from './components/ListToDos'
 
 function App() {
   
@@ -10,6 +11,7 @@ function App() {
   return (
     <>
     <InputToDo/>
+    <ListToDos/>
     </>
     
   )
