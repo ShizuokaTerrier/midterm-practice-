@@ -53,7 +53,7 @@ app.put("/update/:id", async (req,res)=>{
     try {
         const id = req.params.id;
         const description = req.body.description; 
-        const update = await knex("midterm").where('id',id).update({
+        const update = await knex("midterm").from("todolist").where('id',id).update({
             description: description
         }).then(()=>{res.send("Update Complete")})
         
@@ -67,7 +67,7 @@ app.put("/update/:id", async (req,res)=>{
 app.delete("/danger/:id", async(req,res)=>{
     try {
         const id = req.params.id;
-        const deleteTask = await knex("midterm").where('id',id).del().
+        const deleteTask = await knex("midterm").from("todolist").where('id',id).del().
         then(()=>{res.send("Task deleted")})
     } catch (error) {
         console.error(error.message);

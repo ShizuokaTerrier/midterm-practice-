@@ -4,6 +4,21 @@ const ListToDos = ()=>{
 
 const [todos, setTodos]= useState([])
 
+//delete 
+
+const deleteTodo= async (id)=>{
+try {
+   const deleteTodo = await fetch(`http://localhost:8050/danger/${id}`, {
+    "method": "DELETE"
+   })
+
+   setTodos(todos.filter(todo => todo.id !== id ))
+
+} catch (error) {
+  console.error(error.message)
+}
+}
+
 const getTodos = async ()=>{
   try {
 
@@ -36,7 +51,9 @@ useEffect(()=>{
         <tr key = {todo.id}>
           <td>{todo.description}</td>
           <td>edit</td>
-          <td>delete</td>
+          <td><button 
+          className="btn btn-danger" onClick={()=> deleteTodo(todo.id)}>delete</button>
+          </td>
         </tr>
       ))}
       
