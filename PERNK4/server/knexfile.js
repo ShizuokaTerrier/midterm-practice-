@@ -18,6 +18,9 @@ module.exports = {
     },
     migrations: {
       directory: './knex_migrations'
+    },
+    seeds: {
+      directory: './seeds'
     }
   },
 
