@@ -22,3 +22,5 @@ yarn-error.log*
 production-server
 .next
 junit
+package-lock.json 
+package.json
