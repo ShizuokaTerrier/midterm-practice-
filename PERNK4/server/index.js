@@ -6,8 +6,9 @@ const knex = require("./knex")
 app.use(cors());
 app.use(express.json())
 
+linktoDB = "postgres://sq1:jsw2VRjaMMof0VLlBrt52dSPw0aDbAnL@dpg-cn4lhpn109ks73ev2us0-a/practice_qdzk"
 
-app.post("/newtodo", async (req,res)=>{
+app.post(`${linktoDB}/newtodo`, async (req,res)=>{
     try{
         const postedContent = req.body;
         const newTask = await knex("midterm").insert({
@@ -22,7 +23,7 @@ app.post("/newtodo", async (req,res)=>{
 
 //get all do do 
 
-app.get("/alldata", async (req,res)=>{
+app.get(`${linktoDB}/alldata`, async (req,res)=>{
     try{
         const allData = await knex("midterm").select("*").from("todolist")
         res.send(allData)
@@ -33,7 +34,7 @@ app.get("/alldata", async (req,res)=>{
 
 //get by id 
 
-app.get("/alldata/:id", async (req,res)=>{
+app.get(`${linktoDB}/alldata/:id`, async (req,res)=>{
     try {
         const id = req.params.id;
         const getById = await knex("midterm").select({
@@ -49,7 +50,7 @@ app.get("/alldata/:id", async (req,res)=>{
 
 // update a todo 
 
-app.put("/update/:id", async (req,res)=>{
+app.put(`${linktoDB}/update/:id`, async (req,res)=>{
     try {
         const id = req.params.id;
         const description = req.body.description; 
@@ -64,7 +65,7 @@ app.put("/update/:id", async (req,res)=>{
 
 // delete 
 
-app.delete("/danger/:id", async(req,res)=>{
+app.delete(`${linktoDB}/danger/:id`, async(req,res)=>{
     try {
         const id = req.params.id;
         const deleteTask = await knex("midterm").from("todolist").where('id',id).del().
