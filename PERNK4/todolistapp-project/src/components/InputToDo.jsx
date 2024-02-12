@@ -9,7 +9,7 @@ const InputToDo = ()=>{
         e.preventDefault(); 
         try {
             const body = { description };
-            const response = await fetch("http://localhost:8050/newtodo", {
+            const response = await fetch("https://midterm-practice-app.onrender.com/newtodo", {
                 method: "POST",
                 headers: {"Content-Type": "application/json"},
                 body: JSON.stringify(body),

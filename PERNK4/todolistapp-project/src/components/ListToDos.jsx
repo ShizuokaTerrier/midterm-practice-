@@ -11,7 +11,7 @@ const [todos, setTodos]= useState([])
 
 const deleteTodo= async (id)=>{
 try {
-   const deleteTodo = await fetch(`http://localhost:8050/danger/${id}`, {
+   const deleteTodo = await fetch(`https://midterm-practice-app.onrender.com/danger/${id}`, {
     "method": "DELETE"
    })
 
@@ -25,7 +25,7 @@ try {
 const getTodos = async ()=>{
   try {
 
-    const response = await fetch("http://localhost:8050/alldata")
+    const response = await fetch("https://midterm-practice-app.onrender.com/alldata")
     const jsonData = await response.json()
 
     setTodos(jsonData)
