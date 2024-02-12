@@ -2,6 +2,7 @@ const express = require("express");
 const app = express();
 const cors = require("cors")
 const knex = require("./knex")
+const PORT = process.env.DB_PORT; 
 
 app.use(cors());
 app.use(express.json())
@@ -76,6 +77,6 @@ app.delete(`https://midterm-practice-app.onrender.com/danger/:id`, async(req,res
 
 
 
-app.listen(8050, ()=>{
-    console.log("Server is listening on port 8050")
+app.listen(PORT, ()=>{
+    console.log("Connected to server")
 })
