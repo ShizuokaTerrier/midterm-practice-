@@ -3,6 +3,8 @@
 /**
  * @type { Object.<string, import("knex").Knex.Config> }
  */
+
+require('dotenv').config()
 module.exports = {
 
 
@@ -26,10 +28,11 @@ module.exports = {
 
   production: {
     client: 'postgresql',
-    connection: {
-      database: 'my_db',
-      user:     'username',
-      password: 'password'
+    connection: process.env.DATABASE_URL || {
+      database: process.env.DB,
+      user:     process.env.DB_USER,
+      host: process.env.DB_HOST,
+      password: process.env.DB_PASSWORD,
     },
     pool: {
       min: 2,
@@ -37,6 +40,9 @@ module.exports = {
     },
     migrations: {
       tableName: 'knex_migrations'
+    },
+    seeds: {
+      directory: './seeds'
     }
   }
 
