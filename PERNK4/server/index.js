@@ -6,8 +6,7 @@ const knex = require("./knex")
 app.use(cors());
 app.use(express.json())
 
-linktoDB = "postgres://sq1:jsw2VRjaMMof0VLlBrt52dSPw0aDbAnL@dpg-cn4lhpn109ks73ev2us0-a/practice_qdzk"
-
+linktoDB = "https://midterm-practice-app.onrender.com"
 app.post(`${linktoDB}/newtodo`, async (req,res)=>{
     try{
         const postedContent = req.body;
