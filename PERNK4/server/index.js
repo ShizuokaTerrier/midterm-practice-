@@ -2,6 +2,7 @@ const express = require("express");
 const app = express();
 const cors = require("cors")
 const knex = require("./knex")
+require("dotenv").config()
 const PORT = process.env.DB_PORT; 
 
 app.use(cors());
