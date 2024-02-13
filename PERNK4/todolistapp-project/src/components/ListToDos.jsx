@@ -18,7 +18,7 @@ try {
    setTodos(todos.filter(todo => todo.id !== id ))
 
 } catch (error) {
-  console.error(error.message)
+  console.error("Nope")
 }
 }
 
