@@ -22,7 +22,7 @@ app.post(`https://midterm-practice-app.onrender.com/newtodo`, async (req,res)=>{
     }
 })
 
-//get all do do 
+//get all to dos
 
 app.get(`https://midterm-practice-app.onrender.com/alldata`, async (req,res)=>{
     try{
@@ -76,7 +76,7 @@ app.delete(`https://midterm-practice-app.onrender.com/danger/:id`, async(req,res
     }
 })
 
-// update
+// updated
 
 app.listen(PORT, ()=>{
     console.log("Connected to server")
