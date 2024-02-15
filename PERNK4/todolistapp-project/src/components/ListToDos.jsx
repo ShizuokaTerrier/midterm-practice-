@@ -11,8 +11,8 @@ const [todos, setTodos]= useState([])
 
 const deleteTodo= async (id)=>{
 try {
-   const deleteTodo = await fetch(`https://midterm-practice-app.onrender.com/danger/`+`${id}`, {
-    "method": "DELETE"
+   const deleteTodo = await fetch(`https://midterm-practice-app.onrender.com/danger/${id}`, {
+    method: "DELETE"
    })
 
    setTodos(todos.filter(todo => todo.id !== id ))
